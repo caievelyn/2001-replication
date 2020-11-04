@@ -65,9 +65,11 @@ require(sandwich)
 #load panel data
 dat.balance<-read.dta("paneldata_long.dta",convert.factors=TRUE)
 paneldat<-read.dta("paneldata_wide.dta",convert.factors=TRUE)
-dat.balance$partyAll<-recode(dat.balance$partyAll,'"NA"=NA') #fixing NA value on party variable 
+dat.balance$partyAll<-recode(dat.balance$partyAll,'"NA"=NA') 
+#fixing NA value on party variable 
 
-##loaded dataset is unbalanced. Store it as separate object to load it easily for future use.
+##loaded dataset is unbalanced. Store it as separate object to load it easily
+##for future use.
 dat<-dat.balance
 ```
 
@@ -147,8 +149,11 @@ cols2=rgb(1,.1,.1,alpha=.175)
 cols3=rgb(0,.1,0,alpha=.1)
 
 par(omd=c(.1,1,0,1))
-plot(treatment$date,jitter(treatment$pos),col="white",yaxt='n',ylab="",xlab="",ylim=c(.5,5.5),xlim=c(as.Date("2010-01-01"),as.Date("2011-03-01")),xaxt='n')
-axis(2,at=1:5,las=2,labels=c("Oppose","Partly\noppose","Ambiguous","Partly\nsupport","Support"),cex.axis=.8)
+plot(treatment$date,jitter(treatment$pos),col="white",yaxt='n',ylab="",xlab="",
+     ylim=c(.5,5.5),xlim=c(as.Date("2010-01-01"),
+                           as.Date("2011-03-01")),xaxt='n')
+axis(2,at=1:5,las=2,labels=c("Oppose","Partly\noppose","Ambiguous",
+                             "Partly\nsupport","Support"),cex.axis=.8)
 m<-smooth.spline(treatment$pos~treatment$date,spar=1)
 lines(m,lwd=1.5)
 m<-smooth.spline(centerLeft$pos~centerLeft$date,spar=1)
@@ -156,7 +161,8 @@ lines(m,lwd=1.5,col="grey60")
 m<-smooth.spline(centerRight$pos~centerRight$date,spar=1)
 lines(m,lwd=1.5,lty=2,col="grey60")
 text(x=as.Date("2010-06-01"),y=3.4,label="Liberals\nDPP",cex=.8)
-text(x=as.Date("2010-10-01"),y=2.4,label="Social Democrats\nSPP",cex=.8,col="grey60")
+text(x=as.Date("2010-10-01"),y=2.4,label="Social Democrats\nSPP",cex=.8,
+     col="grey60")
 text(x=as.Date("2010-03-15"),y=5,label="Conservatives\nSocial Liberals",cex=.8,col="grey60")
 rng<-par("usr")
 rect(15015,rng[3],rng[2],rng[4],col="grey90")
@@ -212,8 +218,11 @@ cols3=rgb(0,.1,0,alpha=.1)
     cols1=rgb(.1,.1,1,alpha=.175)
     cols2=rgb(1,.1,.1,alpha=.175)
     par(omd=c(.1,1,0,1))
-    plot(treatment$date,jitter(treatment$pos),col="white",yaxt='n',ylab="",xlab="",ylim=c(.5,5.5),xlim=c(as.Date("2010-01-01"),as.Date("2011-03-01")),xaxt='n')
-    axis(2,at=1:5,las=2,labels=c("Oppose","Partly\noppose","Ambiguous","Partly\nsupport","Support"),cex.axis=.8)
+    plot(treatment$date,jitter(treatment$pos),col="white",yaxt='n',ylab="",
+         xlab="",ylim=c(.5,5.5),xlim=c(as.Date("2010-01-01"),
+                                       as.Date("2011-03-01")),xaxt='n')
+    axis(2,at=1:5,las=2,labels=c("Oppose","Partly\noppose","Ambiguous",
+                                 "Partly\nsupport","Support"),cex.axis=.8)
     axis.Date(1,at=seq(as.Date("2010-01-01"),as.Date("2011-01-01"), by="month"), format="%b",las=1,cex.axis=.8)
     axis.Date(1,at=c(as.Date("2010-01-01"),as.Date("2011-01-01")), format="%Y",las=1,line=1,tick="FALSE",cex.axis=.8)
     m<-smooth.spline(treatment$pos~treatment$date,spar=1)
@@ -269,7 +278,8 @@ lines(c(as.Date("2010-06-09"),as.Date("2010-06-21")),c(.5,.5),lwd=t,col=tc)
 lines(c(as.Date("2011-01-05"),as.Date("2011-01-16")),c(.5,.5),lwd=t,col=tc)
 lines(c(as.Date("2011-06-20"),as.Date("2011-06-30")),c(.5,.5),lwd=t,col=tc)
 lines(c(as.Date("2010-05-19"),as.Date("2010-05-19")),c(.5,.1),lty=1)
-text(as.Date("2010-05-19"),.1,"Liberals and DPP reverse policy position,\nproposing to cut the unemployment benefit\nperiod from four to two years",pos=1,cex=.8,xpd=T)
+text(as.Date("2010-05-19"),.1,"Liberals and DPP reverse policy position,
+     \nproposing to cut the unemployment benefit\nperiod from four to two years",pos=1,cex=.8,xpd=T)
 lines(c(as.Date("2011-01-03"),as.Date("2011-01-03")),c(.5,-.4),lty=1)
 text(as.Date("2011-01-20"),-.4,"Liberals reverse policy position, proposing to\nabolish the early retirement program",pos=1,cex=.8)
 text(as.Date("2010-03-05"),.8,"Fielding period of panel waves",cex=.8,pos=4)
@@ -287,7 +297,8 @@ segments(as.Date("2010-02-27"),0.55,as.Date("2010-03-15"),.75)
 # Response rates reported in section "Panel Survey Data and Measures" #
 #######################################################################
 
-#the calculated response rate (55%) reported in text was obtained from the polling Company, Epinion.
+#the calculated response rate (55%) reported in text was obtained from the
+#polling Company, Epinion.
 
 #re-contact acceptance rate (reported in text)
 # prop.table(table(paneldat$recontact))[1]
@@ -327,18 +338,21 @@ dat.balance<-dat.balance[!dat.balance$id %in% (dat.balance[is.na(dat.balance$ben
 # dim(dat.balance)
 
 ## matched control group ##
-	covariates<-c("pressure","education","sex","unemployed","age","income","benefitW1","benefitW2")
+	covariates<-c("pressure","education","sex","unemployed","age","income",
+	              "benefitW1","benefitW2")
 	dat_match<-dat.balance[,c(covariates,"partyAll","id","time")]
 	dat_match<-dat_match[unique(dat_match$id)&dat_match$time==1,] #return to "wide" format
 	dat_match<-na.omit(dat_match)
-	dat_match$treated<-recode(dat_match$partyAll,'"V"=1;"DF"=1;else=0') #code treatment group vs. control pool
+	dat_match$treated<-recode(dat_match$partyAll,'"V"=1;"DF"=1;else=0') 
+	#code treatment group vs. control pool
 #	table(dat_match$treated)
 
 	#get rid of danish letters on values on covariates
 	dat_match$income<-as.numeric(as.factor(dat_match$income))
 	dat_match$education<-as.factor(as.numeric(as.factor(dat_match$education)))
 
-	match <- matchit(treated ~factor(education)+pressure+unemployed+sex+age+factor(income)+factor(benefitW1)+factor(benefitW2),
+	match <- matchit(treated ~factor(education)+pressure+unemployed+sex+age+factor(income)+
+	                   factor(benefitW1)+factor(benefitW2),
                      method = "nearest", data = dat_match)
 	
 	#summary(match)
@@ -380,7 +394,8 @@ c1="grey70"
   par(omd=c(0.05,1,0,1),mai=c(1,1,.1,.1),mfrow=c(1,1))
   y=out[out$partygroup==1,3]
   se=out.se[out.se$partygroup==1,3]
-  plot(x,y,ylim=c(.2,.8),xlim=c(x[1],as.Date("2011-08-01")),main="",xaxt="n",yaxt="n",ylab="",xlab="")
+  plot(x,y,ylim=c(.2,.8),xlim=c(x[1],as.Date("2011-08-01")),main="",
+       xaxt="n",yaxt="n",ylab="",xlab="")
   segments(x,y+1.96*se,x,y-1.96*se)
   lines(x,y,lty=1)
   points(x,y,pch=21,bg="black")
@@ -405,10 +420,12 @@ c1="grey70"
   axis(2,at=seq(0,1,.025),tck=-.015,labels=NA)
   mtext(2,text="Policy Support",line=3)
   axis.Date(1,at=seq(as.Date("2010-03-01"),as.Date("2011-08-01"), by="month"),format="%b",las=1,cex.axis=1)
-  axis.Date(1,at=c(as.Date("2010-03-01"),as.Date("2011-01-01")),format="%Y",las=1,cex.axis=1,line=1,tick="FALSE")
+  axis.Date(1,at=c(as.Date("2010-03-01"),as.Date("2011-01-01")),format="%Y",
+            las=1,cex.axis=1,line=1,tick="FALSE")
   abline(v=as.Date("2010-05-21"),lty=2)
 
-  legend('bottomright',pch=c(21,24,21),pt.bg=c("black",c1,c1),col=c("black",c1,c1),legend=c("Treated","Control (all)","Control (matched)"),cex=.8,pt.cex=1,bty='n')
+  legend('bottomright',pch=c(21,24,21),pt.bg=c("black",c1,c1),
+         col=c("black",c1,c1),legend=c("Treated","Control (all)","Control (matched)"),cex=.8,pt.cex=1,bty='n')
 
 #dev.off()
 
@@ -423,8 +440,10 @@ c1="grey70"
 # Note: Exact numbers are not referenced in text, but the analysis is referred to
 #####
 
-out_lib<-aggregate(benefitClean~time,data=dat.balance[dat.balance$partyAll=="V",],mean)
-out_dpp<-aggregate(benefitClean~time,data=dat.balance[dat.balance$partyAll=="DF",],mean)
+out_lib<-aggregate(benefitClean~time,
+                   data=dat.balance[dat.balance$partyAll=="V",],mean)
+out_dpp<-aggregate(benefitClean~time,
+                   data=dat.balance[dat.balance$partyAll=="DF",],mean)
 
 # out_dpp[3,2]-out_dpp[2,2] #change among DPP
 # out_lib[3,2]-out_lib[2,2] #change among liberals
@@ -444,13 +463,17 @@ out_dpp<-aggregate(benefitClean~time,data=dat.balance[dat.balance$partyAll=="DF"
 #####
 # PLACEBO DID (reported in footnote)
 
-pfit1<-plm(benefitClean~time*partygroup,data=dat.balance[dat.balance$time%in%c(1,2),],model="pooling",index=c("id","time"))
+pfit1<-plm(benefitClean~time*partygroup,
+           data=dat.balance[dat.balance$time%in%c(1,2),],
+           model="pooling",index=c("id","time"))
 # coeftest(pfit1, vcov=vcovHC(pfit1,cluster="group"))[4,]
 
 ####
 # FD among Lib and DPP voters (reported in text)
 
-pfit1<-plm(benefitClean~time,data=dat.balance[dat.balance$time%in%c(2,3)&dat.balance$partygroup==1,],model="pooling",index=c("id","time"))
+pfit1<-plm(benefitClean~time,
+           data=dat.balance[dat.balance$time%in%c(2,3)&dat.balance$partygroup==1,],
+           model="pooling",index=c("id","time"))
 
 # coef(pfit1)[1] 	#level before change in policy position
 # sum(coef(pfit1))	#level after change in policy position
@@ -462,23 +485,35 @@ pfit1<-plm(benefitClean~time,data=dat.balance[dat.balance$time%in%c(2,3)&dat.bal
 # DiD models			    #
 ###################################
 
-pfit1<-plm(benefitClean~partygroup*time,data=dat.balance[dat.balance$time%in%c(2,3),],model="pooling",index=c("id","time"))
-	pfit1_out<-coeftest(pfit1,vcov=vcovHC(pfit1,cluster="group"))["partygroup1:time3",]
+pfit1<-plm(benefitClean~partygroup*time,
+           data=dat.balance[dat.balance$time%in%c(2,3),],
+           model="pooling",index=c("id","time"))
+	pfit1_out<-coeftest(pfit1,
+	                    vcov=vcovHC(pfit1,cluster="group"))["partygroup1:time3",]
 	eff1<-pfit1_out[1]
 	se1<-pfit1_out[2]
 
-pfit2<-plm(benefitClean~partygroup*time+retire_cutClean+bb+ub,data=dat.balance[dat.balance$time%in%c(2,3),],model="pooling",index=c("id","time"))
-	pfit2_out<-coeftest(pfit2,vcov=vcovHC(pfit2,cluster="group"))["partygroup1:time3",]
+pfit2<-plm(benefitClean~partygroup*time+retire_cutClean+bb+ub,
+           data=dat.balance[dat.balance$time%in%c(2,3),],
+           model="pooling",index=c("id","time"))
+	pfit2_out<-coeftest(pfit2,
+	                    vcov=vcovHC(pfit2,cluster="group"))["partygroup1:time3",]
 	eff2<-pfit2_out[1]
 	se2<-pfit2_out[2]
 
-pfit3<-plm(benefitClean~partygroup_matched*time,data=dat.balance[dat.balance$time%in%c(2,3),],model="pooling",index=c("id","time"))
-	pfit3_out<-coeftest(pfit3,vcov=vcovHC(pfit3,cluster="group"))["partygroup_matched:time3",]
+pfit3<-plm(benefitClean~partygroup_matched*time,
+           data=dat.balance[dat.balance$time%in%c(2,3),],
+           model="pooling",index=c("id","time"))
+	pfit3_out<-coeftest(pfit3,
+	                    vcov=vcovHC(pfit3,cluster="group"))["partygroup_matched:time3",]
 	eff3<-pfit3_out[1]
 	se3<-pfit3_out[2]
 
-pfit4<-plm(benefitClean~partygroup_matched*time+retire_cutClean+bb+ub,data=dat.balance[dat.balance$time%in%c(2,3),],model="pooling",index=c("id","time"))
-	pfit4_out<-coeftest(pfit4,vcov=vcovHC(pfit4,cluster="group"))["partygroup_matched:time3",]
+pfit4<-plm(benefitClean~partygroup_matched*time+retire_cutClean+bb+ub,
+           data=dat.balance[dat.balance$time%in%c(2,3),],
+           model="pooling",index=c("id","time"))
+	pfit4_out<-coeftest(pfit4,
+	                    vcov=vcovHC(pfit4,cluster="group"))["partygroup_matched:time3",]
 	eff4<-pfit4_out[1]
 	se4<-pfit4_out[2]
 
@@ -491,7 +526,8 @@ tab[2,]<-parenth(tab[2,])
 rownames(tab)<-c("DiD","")
 colnames(tab)<-rep("",ncol(tab))
 
-obs<-cbind(pdim(pfit1)$nT[-2],pdim(pfit2)$nT[-2],pdim(pfit3)$nT[-2],pdim(pfit4)$nT[-2])
+obs<-cbind(pdim(pfit1)$nT[-2],pdim(pfit2)$nT[-2],
+           pdim(pfit3)$nT[-2],pdim(pfit4)$nT[-2])
 rownames(obs)<-c("Units","Observations")
 
 stargazer(rbind(tab,obs))
@@ -518,18 +554,22 @@ dat.balance<-dat.balance[!dat.balance$id %in% (dat.balance[is.na(dat.balance$ret
 # dim(dat.balance)
 
 ## matched control group ##
-	covariates<-c("unemployed","pressure","education","sex","age","income","retireW1","retireW2","retireW3")
+	covariates<-c("unemployed","pressure","education","sex","age",
+	              "income","retireW1","retireW2","retireW3")
 	dat_match<-dat.balance[,c(covariates,"partyAll","id","time")]
-	dat_match<-dat_match[unique(dat_match$id)&dat_match$time==1,] #return to "wide" format
+	dat_match<-dat_match[unique(dat_match$id)&dat_match$time==1,] 
+	#return to "wide" format
 	dat_match<-na.omit(dat_match)
-	dat_match$treated<-recode(dat_match$partyAll,'"V"=1;else=0') #code treatment group vs. control pool
+	dat_match$treated<-recode(dat_match$partyAll,'"V"=1;else=0') 
+	#code treatment group vs. control pool
 #	table(dat_match$treated)
 
 	#get rid of danish letters on values on covariates
 	dat_match$income<-as.numeric(as.factor(dat_match$income))
 	dat_match$education<-as.factor(as.numeric(as.factor(dat_match$education)))
 
-	match <- matchit(treated ~ factor(retireW1)+factor(retireW2)+factor(retireW3)+pressure+sex+unemployed+factor(income)+factor(education)+age,
+	match <- matchit(treated ~ factor(retireW1)+factor(retireW2)+factor(retireW3)+
+	                   pressure+sex+unemployed+factor(income)+factor(education)+age,
                      method = "nearest", data = dat_match)
 
 	#summary(match)
@@ -565,7 +605,8 @@ c1="grey70"
   par(omd=c(0.05,1,0,1),mai=c(1,1,.1,.1),mfrow=c(1,1))
   y=out[out$partygroup==1,3]
   se=out.se[out.se$partygroup==1,3]
-  plot(x,y,ylim=c(.4,1),xlim=c(x[1],as.Date("2011-08-01")),main="",xaxt="n",yaxt="n",ylab="",xlab="")
+  plot(x,y,ylim=c(.4,1),xlim=c(x[1],as.Date("2011-08-01")),
+       main="",xaxt="n",yaxt="n",ylab="",xlab="")
   segments(x,y+1.96*se,x,y-1.96*se)
   lines(x,y,lty=1)
   points(x,y,pch=21,bg="black")
@@ -590,9 +631,11 @@ c1="grey70"
   axis(2,at=seq(0,1,.025),tck=-.015,labels=NA)
   mtext(2,text="Policy Support",line=3)
   axis.Date(1,at=seq(as.Date("2010-03-01"),as.Date("2011-08-01"), by="month"),format="%b",las=1,cex.axis=1)
-  axis.Date(1,at=c(as.Date("2010-03-01"),as.Date("2011-01-01")),format="%Y",las=1,cex.axis=1,line=1,tick="FALSE")
+  axis.Date(1,at=c(as.Date("2010-03-01"),as.Date("2011-01-01")),
+            format="%Y",las=1,cex.axis=1,line=1,tick="FALSE")
   abline(v=as.Date("2011-01-01"),lty=2)
-  legend('bottomright',pch=c(21,24,21),pt.bg=c("black",c1,c1),col=c("black",c1,c1),legend=c("Treated","Control (all)","Control (matched)"),cex=.8,pt.cex=1,bty='n')
+  legend('bottomright',pch=c(21,24,21),pt.bg=c("black",c1,c1),
+         col=c("black",c1,c1),legend=c("Treated","Control (all)","Control (matched)"),cex=.8,pt.cex=1,bty='n')
 
 #dev.off()
   
@@ -614,7 +657,8 @@ c1="grey70"
 ####
 # reported change
 
-out<-aggregate(retire_cutClean~time,data=dat.balance[dat.balance$partyAll=="V",],mean)
+out<-aggregate(retire_cutClean~time,
+               data=dat.balance[dat.balance$partyAll=="V",],mean)
 # out[3,2] #pre 
 # out[4,2] #post
 
@@ -622,33 +666,49 @@ out<-aggregate(retire_cutClean~time,data=dat.balance[dat.balance$partyAll=="V",]
 ##
 # placebo DiD (reported in footnote)
 
-pfit1<-plm(retire_cutClean~partygroup*time,data=dat.balance[dat.balance$time%in%c(1,2),],model="pooling",index=c("id","time"))
+pfit1<-plm(retire_cutClean~partygroup*time,
+           data=dat.balance[dat.balance$time%in%c(1,2),],
+           model="pooling",index=c("id","time"))
 # coeftest(pfit1,vcov=vcovHC(pfit1,cluster="group"))[4,]
 
-pfit1<-plm(retire_cutClean~partygroup*time,data=dat.balance[dat.balance$time%in%c(2,3),],model="pooling",index=c("id","time"))
+pfit1<-plm(retire_cutClean~partygroup*time,
+           data=dat.balance[dat.balance$time%in%c(2,3),],
+           model="pooling",index=c("id","time"))
 # coeftest(pfit1,vcov=vcovHC(pfit1,cluster="group"))[4,]
 
 #######################
 # Reproducing Table 2 #
 #######################
 
-pfit1<-plm(retire_cutClean~partygroup*time,data=dat.balance[dat.balance$time%in%c(3,4),],model="pooling",index=c("id","time"))
-	pfit1_out<-coeftest(pfit1,vcov=vcovHC(pfit1,cluster="group"))["partygroup1:time4",]
+pfit1<-plm(retire_cutClean~partygroup*time,
+           data=dat.balance[dat.balance$time%in%c(3,4),],
+           model="pooling",index=c("id","time"))
+	pfit1_out<-coeftest(pfit1,
+	                    vcov=vcovHC(pfit1,cluster="group"))["partygroup1:time4",]
 	eff1<-pfit1_out[1]
 	se1<-pfit1_out[2]
 
-pfit2<-plm(retire_cutClean~partygroup*time+benefitClean+bb+ub,data=dat.balance[dat.balance$time%in%c(3,4),],model="pooling",index=c("id","time"))
-	pfit2_out<-coeftest(pfit2,vcov=vcovHC(pfit2,cluster="group"))["partygroup1:time4",]
+pfit2<-plm(retire_cutClean~partygroup*time+benefitClean+bb+ub,
+           data=dat.balance[dat.balance$time%in%c(3,4),],
+           model="pooling",index=c("id","time"))
+	pfit2_out<-coeftest(pfit2,
+	                    vcov=vcovHC(pfit2,cluster="group"))["partygroup1:time4",]
 	eff2<-pfit2_out[1]
 	se2<-pfit2_out[2]
 
-pfit3<-plm(retire_cutClean~partygroup_matched*time,data=dat.balance[dat.balance$time%in%c(3,4),],model="pooling",index=c("id","time"))
-	pfit3_out<-coeftest(pfit3,vcov=vcovHC(pfit3,cluster="group"))["partygroup_matched:time4",]
+pfit3<-plm(retire_cutClean~partygroup_matched*time,
+           data=dat.balance[dat.balance$time%in%c(3,4),],
+           model="pooling",index=c("id","time"))
+	pfit3_out<-coeftest(pfit3,
+	                    vcov=vcovHC(pfit3,cluster="group"))["partygroup_matched:time4",]
 	eff3<-pfit3_out[1]
 	se3<-pfit3_out[2]
 
-pfit4<-plm(retire_cutClean~partygroup_matched*time+benefitClean+bb+ub,data=dat.balance[dat.balance$time%in%c(3,4),],model="pooling",index=c("id","time"))
-	pfit4_out<-coeftest(pfit4,vcov=vcovHC(pfit4,cluster="group"))["partygroup_matched:time4",]
+pfit4<-plm(retire_cutClean~partygroup_matched*time+benefitClean+bb+ub,
+           data=dat.balance[dat.balance$time%in%c(3,4),],
+           model="pooling",index=c("id","time"))
+	pfit4_out<-coeftest(pfit4,
+	                    vcov=vcovHC(pfit4,cluster="group"))["partygroup_matched:time4",]
 	eff4<-pfit4_out[1]
 	se4<-pfit4_out[2]
 
@@ -661,7 +721,8 @@ tab[2,]<-parenth(tab[2,])
 rownames(tab)<-c("DiD","")
 colnames(tab)<-rep("",ncol(tab))
 
-obs<-cbind(pdim(pfit1)$nT[-2],pdim(pfit2)$nT[-2],pdim(pfit3)$nT[-2],pdim(pfit4)$nT[-2])
+obs<-cbind(pdim(pfit1)$nT[-2],pdim(pfit2)$nT[-2],
+           pdim(pfit3)$nT[-2],pdim(pfit4)$nT[-2])
 rownames(obs)<-c("Units","Observations")
 
 stargazer(rbind(tab,obs)) #note: appearance of table has been edited manually
@@ -710,18 +771,22 @@ dat.balance<-dat[!is.na(dat$partyAll),]
 dat.balance$benefitW2<-recode(dat.balance$benefitW2,'6=NA')
 
 ## matched control group ##
-	covariates<-c("pressure","education","sex","unemployed","age","income","benefitW1","benefitW2")
+	covariates<-c("pressure","education","sex","unemployed",
+	              "age","income","benefitW1","benefitW2")
 	dat_match<-dat.balance[,c(covariates,"partyAll","id","time")]
-	dat_match<-dat_match[unique(dat_match$id)&dat_match$time==1,] #return to "wide" format
+	dat_match<-dat_match[unique(dat_match$id)&dat_match$time==1,] 
+	#return to "wide" format
 	dat_match<-na.omit(dat_match)
-	dat_match$treated<-recode(dat_match$partyAll,'"V"=1;"DF"=1;else=0') #code treatment group vs. control pool
+	dat_match$treated<-recode(dat_match$partyAll,'"V"=1;"DF"=1;else=0') 
+	#code treatment group vs. control pool
 #	table(dat_match$treated)
 
 	#get rid of danish letters on values on covariates
 	dat_match$income<-as.numeric(as.factor(dat_match$income))
 	dat_match$education<-as.factor(as.numeric(as.factor(dat_match$education)))
 
-	match <- matchit(treated ~factor(education)+pressure+unemployed+sex+age+factor(income)+factor(benefitW1)+factor(benefitW2),
+	match <- matchit(treated ~factor(education)+pressure+unemployed+sex+age+factor(income)+
+	                   factor(benefitW1)+factor(benefitW2),
                      method = "nearest", data = dat_match)
 
 	#summary(match)
@@ -736,7 +801,9 @@ dat.balance$partygroup_matched<-recode(dat.balance$partyAll,'"V"=1;"DF"=1;else=N
 dat.balance$partygroup_matched[dat.balance$id%in%matchID] <- 0
 
 #fit model
-fit<-plm(benefitClean~partygroup_matched*time*factor(benefitW2),data=dat.balance[dat.balance$time%in%2:3,],index=c("id","time"),model="within")
+fit<-plm(benefitClean~partygroup_matched*time*factor(benefitW2),
+         data=dat.balance[dat.balance$time%in%2:3,],
+         index=c("id","time"),model="within")
 
 #retrieve quantities of interest from panel model
 cf<-coef(fit)
@@ -749,7 +816,8 @@ did_se<-c(sqrt(vmat[2,2]),sqrt(vmat[2,2]+vmat[7,7]+2*vmat[2,7]),
 	sqrt(vmat[2,2]+vmat[10,10]+2*vmat[10,2]))
 
 #means for plotting (levels etc)
-benefit<-aggregate(benefitClean~partygroup_matched*time*factor(benefitW2),data=dat.balance[dat.balance$time%in%2:3,],mean)
+benefit<-aggregate(benefitClean~partygroup_matched*time*factor(benefitW2),
+                   data=dat.balance[dat.balance$time%in%2:3,],mean)
 
 
 ############
@@ -763,7 +831,9 @@ benefit<-aggregate(benefitClean~partygroup_matched*time*factor(benefitW2),data=d
 dat.balance$benefitW2f<-as.factor(dat.balance$benefitW2)
 dat.balance$benefitW2f<-relevel(dat.balance$benefitW2f,ref='5')
 
-fit<-plm(benefitClean~partygroup_matched*time*benefitW2f,data=dat.balance[dat.balance$time%in%2:3,],index=c("id","time"),model="within")
+fit<-plm(benefitClean~partygroup_matched*time*benefitW2f,
+         data=dat.balance[dat.balance$time%in%2:3,],
+         index=c("id","time"),model="within")
 # coeftest(fit,vcovHC(fit,cluster="group"))[2,]
 
 
@@ -775,18 +845,22 @@ fit<-plm(benefitClean~partygroup_matched*time*benefitW2f,data=dat.balance[dat.ba
 dat.balance$retireW3<-recode(dat.balance$retireW3,'6=NA')
 
 ## matched control group ##
-	covariates<-c("pressure","education","unemployed","sex","age","income","retireW1","retireW2","retireW3")
+	covariates<-c("pressure","education","unemployed","sex",
+	              "age","income","retireW1","retireW2","retireW3")
 	dat_match<-dat.balance[,c(covariates,"partyAll","id","time")]
-	dat_match<-dat_match[unique(dat_match$id)&dat_match$time==1,] #return to "wide" format
+	dat_match<-dat_match[unique(dat_match$id)&dat_match$time==1,] 
+	#return to "wide" format
 	dat_match<-na.omit(dat_match)
-	dat_match$treated<-recode(dat_match$partyAll,'"V"=1;else=0') #code treatment group vs. control pool
+	dat_match$treated<-recode(dat_match$partyAll,'"V"=1;else=0') 
+	#code treatment group vs. control pool
 #	table(dat_match$treated)
 
 	#get rid of danish letters on values on covariates
 	dat_match$income<-as.numeric(as.factor(dat_match$income))
 	dat_match$education<-as.factor(as.numeric(as.factor(dat_match$education)))
 
-	match <- matchit(treated ~ factor(retireW1)+factor(retireW2)+factor(retireW3)+pressure+sex+unemployed+factor(income)+factor(education)+age,
+	match <- matchit(treated ~ factor(retireW1)+factor(retireW2)+factor(retireW3)+
+	                   pressure+sex+unemployed+factor(income)+factor(education)+age,
                      method = "nearest", data = dat_match)
 
 
@@ -802,7 +876,9 @@ dat.balance$partygroup_matched<-recode(dat.balance$partyAll,'"V"=1;else=NA')
 dat.balance$partygroup_matched[dat.balance$id%in%matchID] <- 0
 
 #fit model
-fit2<-plm(retire_cutClean~partygroup_matched*time*factor(retireW3),data=dat.balance[dat.balance$time%in%3:4,],index=c("id","time"),model="within")
+fit2<-plm(retire_cutClean~partygroup_matched*time*factor(retireW3),
+          data=dat.balance[dat.balance$time%in%3:4,],
+          index=c("id","time"),model="within")
 # summary(fit2)
 
 #retrieve quantities of interest from panel model
@@ -816,7 +892,8 @@ did_se2<-c(sqrt(vmat2[2,2]),sqrt(vmat2[2,2]+vmat2[7,7]+2*vmat2[2,7]),
 	sqrt(vmat2[2,2]+vmat2[10,10]+2*vmat2[10,2]))
 
 #means for plotting (levels etc)
-retire<-aggregate(retire_cutClean~partygroup_matched*time*factor(retireW3),data=dat.balance[dat.balance$time%in%3:4,],mean)
+retire<-aggregate(retire_cutClean~partygroup_matched*time*factor(retireW3),
+                  data=dat.balance[dat.balance$time%in%3:4,],mean)
 
 ############
 # Effect among voters who supported cutbacks (reported in text)
@@ -828,7 +905,9 @@ retire<-aggregate(retire_cutClean~partygroup_matched*time*factor(retireW3),data=
 
 dat.balance$retireW3f<-as.factor(dat.balance$retireW3)
 dat.balance$retireW3f<-relevel(dat.balance$retireW3f,ref='5')
-fit<-plm(retire_cutClean~partygroup_matched*time*retireW3f,data=dat.balance[dat.balance$time%in%3:4,],index=c("id","time"),model="within")
+fit<-plm(retire_cutClean~partygroup_matched*time*retireW3f,
+         data=dat.balance[dat.balance$time%in%3:4,],
+         index=c("id","time"),model="within")
 # coeftest(fit,vcovHC(fit,cluster="group"))[2,]
 
 
@@ -848,11 +927,13 @@ c2<-retire[retire$partygroup_matched==0,4]
 
 par(mfrow=c(2,5))
 par(omd=c(0.15,.9,.1,1),mai=c(0.1,0.1,0.5,.1))
-header<-c("Before: Support","Before: Partly sup.","Before: Neither","Before: Partly opp.","Before: Oppose")
+header<-c("Before: Support","Before: Partly sup.","Before: Neither",
+          "Before: Partly opp.","Before: Oppose")
 select<-matrix(c(1,3,5,7,9,2,4,6,8,10),nc=2)
 
 for(i in 1:5){
-plot(x=1:2,m[select[i,]],xlim=c(.25,2.75),ylim=c(0,1.15),xaxt='n',yaxt='n',ylab='',xlab='')
+plot(x=1:2,m[select[i,]],xlim=c(.25,2.75),ylim=c(0,1.15),
+     xaxt='n',yaxt='n',ylab='',xlab='')
 
 lines(1:2,m[select[i,]])
 points(2,c[select[i,2]],pch=4)
@@ -871,8 +952,10 @@ if(i==1){
 	}
 brackets(2.1,m[select[i,]][2],2.1,c[select[i,2]],type=4)
 
-text(2.2,(m[select[i,]][2]+c[select[i,2]])/2,labels=format(round(did_est[i],2),nsmall=2),pos=4)
-text(2.175,(m[select[i,]][2]+c[select[i,2]])/2-.075,labels=paste0(paste0("(",round(did_se[i],2)),")"),pos=4,cex=.85)
+text(2.2,(m[select[i,]][2]+c[select[i,2]])/2,
+     labels=format(round(did_est[i],2),nsmall=2),pos=4)
+text(2.175,(m[select[i,]][2]+c[select[i,2]])/2-.075,
+     labels=paste0(paste0("(",round(did_se[i],2)),")"),pos=4,cex=.85)
 }
 
 rect(rng[2],1.05,3.2,rng[3],col="grey90",xpd=NA)
@@ -881,7 +964,8 @@ mtext(4,las=3,text="Unemploy. Benefits",line=0.2,cex=0.8,adj=.25)
 par(mai=c(.75,.1,0,.1))
 
 for(i in 1:5){
-plot(x=1:2,m2[select[i,]],xlim=c(.25,2.75),ylim=c(0,1),xaxt='n',yaxt='n',ylab='',xlab='')
+plot(x=1:2,m2[select[i,]],xlim=c(.25,2.75),ylim=c(0,1),
+     xaxt='n',yaxt='n',ylab='',xlab='')
 lines(1:2,m2[select[i,]])
 points(2,c2[select[i,2]],pch=4)
 lines(1:2,c(m2[select[i,1]],c2[select[i,2]]),lty=2)
@@ -898,8 +982,11 @@ if(i==1){
 	}
 
 brackets(2.1,m2[select[i,]][2],2.1,c2[select[i,2]],type=4)
-text(2.2,(m2[select[i,]][2]+c2[select[i,2]])/2,labels=format(round(did_est2[i],2), nsmall = 2),pos=4)
-text(2.175,(m2[select[i,]][2]+c2[select[i,2]])/2-.075,labels=paste0(paste0("(",format(round(did_se2[i],2),nsmall=2),")")),pos=4,cex=.85)
+text(2.2,(m2[select[i,]][2]+c2[select[i,2]])/2,
+     labels=format(round(did_est2[i],2), nsmall = 2),pos=4)
+text(2.175,(m2[select[i,]][2]+c2[select[i,2]])/2-.075,
+     labels=paste0(paste0("(",format(round(did_se2[i],2),nsmall=2),")")),
+     pos=4,cex=.85)
 }
 
 rect(rng[2],rng[4],3.2,rng[3],col="grey90",xpd=NA)
@@ -915,6 +1002,13 @@ mtext(4,las=3,text="Early Retirement",line=0.2,cex=0.8,adj=.5)
 
 ```
 
+# Notes
 
-We 
+We ran into obstacles with our backup paper being written in Stata, so our team has chosen to replicate [How Political Parties Shape Public Opinion in the Real World](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/Z5BTCQ). We have replicated all the main figure and tables in the main paper: Figures 1 through 5, along with Tables 1 and 2. Our replication paper will focus on expanding the difference-in-differences model displayed by Table 1 and Table 2. These tables demonstrate how Liberal identifiers altered their support for cutting the unemployment benefit period in half (Table 1) and abolishing early retirement (Table 2) after their affiliated party altered its position. These tables will be useful in our extension, in which we plan to control for other variables beyond prior partisan identification such as voter age. By including a new variable, this analysis can investigate a potential correlation between voter age and a political party’s influence on altering public opinions. Figures 1 through 4 show the change in policy support and opposition during when the party's platform changed and Figure 1 is grouped by the shifts in each party. These will be useful for us in our extension by grouping the respondents by age and investigating the difference in policy support by age. The last figure (Figure 5) shows the average change in support split among the treated (group that identifies with a party that will change its platform) and control (group that identifies with a party that will not change its platform). Our extension will focus on investigating if age and other personal variables are also important in influencing the shift in public opinion outside of political parties.
 
+\newpage
+
+# Code
+
+```{rr print-code, ref.label=knitr::all_labels(), echo = TRUE, eval = FALSE}
+```

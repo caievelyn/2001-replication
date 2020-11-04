@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  3 NOV 2020 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  4 NOV 2020 16:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -546,34 +546,157 @@ pe pdf)
 Package pdftex.def Info: replication_pdf_files/figure-latex/unnamed-chunk-8-1.p
 df  used on input line 141.
 (pdftex.def)             Requested size: 393.46902pt x 220.82445pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 143.
 [3 <./replication_pdf_files/figure-latex/unnamed-chunk-6-1.pdf>] [4 <./replicat
 ion_pdf_files/figure-latex/unnamed-chunk-8-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 143.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+77.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [5]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+1132.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [6]
+Overfull \hbox (13.24358pt too wide) in paragraph at lines 1132--1132
+[]\T1/lmtt/m/n/10 text(x=as.Date("2010-03-15"),y=5,label="Conservatives\nSocial
+ Liberals",cex=.8,col="grey60")[] 
+ []
+
+[7]
+Overfull \hbox (112.99329pt too wide) in paragraph at lines 1132--1132
+[]    \T1/lmtt/m/n/10 axis.Date(1,at=seq(as.Date("2010-01-01"),as.Date("2011-01
+-01"), by="month"), format="%b",las=1,cex.axis=.8)[] 
+ []
+
+
+Overfull \hbox (144.4932pt too wide) in paragraph at lines 1132--1132
+[]    \T1/lmtt/m/n/10 axis.Date(1,at=c(as.Date("2010-01-01"),as.Date("2011-01-0
+1")), format="%Y",las=1,line=1,tick="FALSE",cex.axis=.8)[] 
+ []
+
+[8]
+Overfull \hbox (28.99353pt too wide) in paragraph at lines 1132--1132
+[]    \T1/lmtt/m/n/10 text(x=as.Date("2010-07-01"),y=1,label="Social Democrats\
+nSPP and DPP",cex=.8,col="grey60")[] 
+ []
+
+
+Overfull \hbox (28.99353pt too wide) in paragraph at lines 1132--1132
+[]    \T1/lmtt/m/n/10 text(x=as.Date("2010-5-01"),y=5,label="Conservatives\nSoc
+ial Liberals",cex=.8,col="grey60")[] 
+ []
+
+
+Overfull \hbox (55.24345pt too wide) in paragraph at lines 1132--1132
+[]     \T1/lmtt/m/n/10 \nproposing to cut the unemployment benefit\nperiod from
+ four to two years",pos=1,cex=.8,xpd=T)[] 
+ []
+
+
+Overfull \hbox (217.99298pt too wide) in paragraph at lines 1132--1132
+[]\T1/lmtt/m/n/10 text(as.Date("2011-01-20"),-.4,"Liberals reverse policy posit
+ion, proposing to\nabolish the early retirement program",pos=1,cex=.8)[] 
+ []
+
+[9]
+Overfull \hbox (191.74306pt too wide) in paragraph at lines 1132--1132
+[]\T1/lmtt/m/n/10 dat.balance<-dat.balance[!dat.balance$id %in% (dat.balance[is
+.na(dat.balance$benefitClean)|is.na(dat.balance$partyAll),]$id),][] 
+ []
+
+
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 1132--1132
+[]    \T1/lmtt/m/n/10 dat_match<-dat_match[unique(dat_match$id)&dat_match$time=
+=1,] #return to "wide" format[] 
+ []
+
+[10]
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 1132--1132
+[]    \T1/lmtt/m/n/10 match <- matchit(treated ~factor(education)+pressure+unem
+ployed+sex+age+factor(income)+[] 
+ []
+
+[11]
+Overfull \hbox (91.99335pt too wide) in paragraph at lines 1132--1132
+[]  \T1/lmtt/m/n/10 axis.Date(1,at=seq(as.Date("2010-03-01"),as.Date("2011-08-0
+1"), by="month"),format="%b",las=1,cex.axis=1)[] 
+ []
+
+
+Overfull \hbox (107.7433pt too wide) in paragraph at lines 1132--1132
+[]         \T1/lmtt/m/n/10 col=c("black",c1,c1),legend=c("Treated","Control (al
+l)","Control (matched)"),cex=.8,pt.cex=1,bty=\TS1/lmtt/m/n/10 '\T1/lmtt/m/n/10 
+n\TS1/lmtt/m/n/10 '\T1/lmtt/m/n/10 )[] 
+ []
+
+[12] [13]
+Overfull \hbox (76.2434pt too wide) in paragraph at lines 1132--1132
+[]\T1/lmtt/m/n/10 parenth <- function(x){paste0(paste0("(",x),")")} #small func
+tion for putting parentheses around numbers[] 
+ []
+
+
+Overfull \hbox (207.49301pt too wide) in paragraph at lines 1132--1132
+[]\T1/lmtt/m/n/10 dat.balance<-dat.balance[!dat.balance$id %in% (dat.balance[is
+.na(dat.balance$retire_cutClean)|is.na(dat.balance$partyAll),]$id),][] 
+ []
+
+[14] [15]
+Overfull \hbox (91.99335pt too wide) in paragraph at lines 1132--1132
+[]  \T1/lmtt/m/n/10 axis.Date(1,at=seq(as.Date("2010-03-01"),as.Date("2011-08-0
+1"), by="month"),format="%b",las=1,cex.axis=1)[] 
+ []
+
+
+Overfull \hbox (107.7433pt too wide) in paragraph at lines 1132--1132
+[]         \T1/lmtt/m/n/10 col=c("black",c1,c1),legend=c("Treated","Control (al
+l)","Control (matched)"),cex=.8,pt.cex=1,bty=\TS1/lmtt/m/n/10 '\T1/lmtt/m/n/10 
+n\TS1/lmtt/m/n/10 '\T1/lmtt/m/n/10 )[] 
+ []
+
+[16]
+Overfull \hbox (76.2434pt too wide) in paragraph at lines 1132--1132
+[]\T1/lmtt/m/n/10 parenth <- function(x){paste0(paste0("(",x),")")} #small func
+tion for putting parentheses around numbers[] 
+ []
+
+[17]
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 1132--1132
+[]    \T1/lmtt/m/n/10 match <- matchit(treated ~factor(education)+pressure+unem
+ployed+sex+age+factor(income)+[] 
+ []
+
+[18] [19] [20] [21]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1134.
+[22]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1134.
 (./replication_pdf.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 143.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 143.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1134.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1134.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12893 strings out of 480608
- 190607 string characters out of 5903631
- 477384 words of memory out of 5000000
- 28530 multiletter control sequences out of 15000+600000
- 572480 words of font info for 70 fonts, out of 8000000 for 9000
+ 13017 strings out of 480608
+ 192292 string characters out of 5903631
+ 501891 words of memory out of 5000000
+ 28607 multiletter control sequences out of 15000+600000
+ 573768 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,42p,814b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/
-texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/20
-20/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-di
-st/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/ty
-pe1/public/lm/lmr17.pfb>
-Output written on replication_pdf.pdf (4 pages, 172984 bytes).
+ 41i,8n,42p,814b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
+/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/
+texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2020/texmf-dist
+/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
+1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm
+/lmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
+>
+Output written on replication_pdf.pdf (22 pages, 236816 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 10327 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 10343 words of extra memory for PDF output out of 12000 (max. 10000000)
 
